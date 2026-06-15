@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width
+ initial-scale=1.0">
+<title>KILIORA LABS</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+	*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Inter',sans-serif;
+scroll-behavior:smooth;
+}
+
+body{
+background:#0a0a0a;
+color:white;
+overflow-x:hidden;
+position:relative;
+}
+
+/* ELEPHANT BACKGROUND */
+
+body::before{
+content:"";
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:
+linear-gradient(
+rgba(0,0,0,0.80),
+rgba(0,0,0,0.85)
+),
+url("elephant.png");
+background-size:cover;
+background-position:center;
+opacity:0.15;
+z-index:-1;
+}
+
+/* GLOW */
+
+.hero-glow{
+position:fixed;
+width:600px;
+height:600px;
+background:#ff7900;
+filter:blur(180px);
+top:-200px;
+right:-150px;
+opacity:.20;
+z-index:-2;
+}
+
+.hero-light{
+position:absolute;
+width:300px;
+height:300px;
+background:#009e60;
+filter:blur(140px);
+opacity:.25;
+top:0;
+left:0;
+}
+
+/* NAVBAR */
+
+.navbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 8%;
+position:sticky;
+top:0;
+backdrop-filter:blur(20px);
+background:rgba(0,0,0,.45);
+border-bottom:1px solid rgba(255,255,255,.1);
+z-index:100;
+}
+
+.logo img{
+height:85px;
+}
+
+.menu{
+display:flex;
+list-style:none;
+gap:30px;
+}
+
+.menu a{
+text-decoration:none;
+color:white;
+font-weight:600;
+transition:.3s;
+}
+
+.menu a:hover{
+color:#ff7900;
+}
+
+/* HERO */
+
+.hero{
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+padding:80px 8%;
+position:relative;
+}
+
+.hero-content{
+max-width:850px;
+text-align:center;
+}
+
+.badge{
+display:inline-block;
+padding:12px 20px;
+border-radius:50px;
+background:rgba(255,255,255,.08);
+border:1px solid rgba(255,255,255,.15);
+margin-bottom:25px;
+font-size:.9rem;
+backdrop-filter:blur(10px);
+}
+
+.hero h1{
+font-size:4rem;
+line-height:1.1;
+margin-bottom:20px;
+font-weight:800;
+background:linear-gradient(
+90deg,
+#ff7900,
+#ffffff,
+#009e60
+);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.hero p{
+font-size:1.15rem;
+line-height:1.8;
+color:#d1d1d1;
+margin-bottom:35px;
+}
+
+/* BUTTONS */
+
+.hero-buttons{
+display:flex;
+justify-content:center;
+gap:15px;
+flex-wrap:wrap;
+margin-bottom:35px;
+}
+
+.btn{
+padding:16px 28px;
+border-radius:15px;
+font-weight:700;
+text-decoration:none;
+transition:.3s;
+}
+
+.btn-primary{
+background:#ff7900;
+color:white;
+box-shadow:0 10px 30px rgba(255,121,0,.35);
+}
+
+.btn-primary:hover{
+transform:translateY(-4px);
+}
+
+.btn-secondary{
+border:1px solid rgba(255,255,255,.2);
+color:white;
+background:rgba(255,255,255,.05);
+}
+
+.btn-secondary:hover{
+background:rgba(255,255,255,.1);
+}
+
+/* TRUST */
+
+.hero-trust{
+display:flex;
+justify-content:center;
+gap:20px;
+flex-wrap:wrap;
+color:#bcbcbc;
+font-size:.95rem;
+}
+
+/* TITRES */
+
+.section-title{
+text-align:center;
+font-size:2.6rem;
+margin:80px 0 40px;
+font-weight:800;
+}
+
+.section-title::after{
+content:"";
+display:block;
+width:90px;
+height:5px;
+background:#ff7900;
+margin:15px auto;
+border-radius:50px;
+}
+
+/* CARDS */
+
+.stats,
+.services{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:25px;
+padding:0 8% 80px;
+}
+
+.card{
+background:rgba(255,255,255,.05);
+border:1px solid rgba(255,255,255,.08);
+padding:30px;
+border-radius:22px;
+backdrop-filter:blur(12px);
+transition:.4s;
+}
+
+.card:hover{
+transform:translateY(-8px);
+border-color:#ff7900;
+box-shadow:0 15px 35px rgba(255,121,0,.15);
+}
+
+.card h3{
+margin-bottom:15px;
+font-size:1.4rem;
+}
+
+.card p{
+line-height:1.7;
+color:#cfcfcf;
+}
+
+/* SECTION */
+
+.section{
+padding-top:20px;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+.hero h1{
+font-size:2.6rem;
+}
+
+.hero p{
+font-size:1rem;
+}
+
+.navbar{
+padding:15px 5%;
+}
+
+.menu{
+gap:15px;
+font-size:.9rem;
+}
+
+.section-title{
+font-size:2rem;
+}
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="hero-glow"></div>
+
+<nav class="navbar">
+
+<div class="logo">
+<img src="logokilioralabs.png" alt="KILIORA LABS">
+</div>
+
+<ul class="menu">
+<li><a href="#Offres">Offres</a></li>
+<li><a href="#Pourquoi nous">Pourquoi nous</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+
+</nav>
+
+
+<section class="hero">
+
+<div class="hero-light"></div>
+
+<div class="hero-content">
+
+<div class="badge">
+🚀 Landing Pages • Sites Vitrines • Automatisations WhatsApp
+</div>
+
+
+
+<h1>Bienvenue sur le site de KILIORA LABS,
+ votre entreprise mérite un site qui inspire confiance
+ </h1>
+
+<p>
+Nous souhaitons vous aidez à avoir plus de visibilité. Pour cela, nous créons des sites vitrines et
+ des landing pages à fin de vous rapprocher de vos clients 
+ et de renforcer la confiance qu'ils accordent à votre activité. 
+ Parce que aujourd'hui, avoir une présence en ligne professionnelle
+ est l'un des meilleurs moyens de montrer votre sérieux et de developper votre entreprise 
+</p>
+
+
+
+<div class="hero-buttons">
+
+<a
+href="https://wa.me/2250508731308?text=Bonjour%20KILIORA%20LABS,%20je%20souhaite%20obtenir%20un%20devis."
+target="_blank"
+class="btn btn-primary">
+
+🚀 Recevoir mon devis gratuit
+
+</a>
+
+</div>
+
+
+
+<div class="hero-trust">
+
+<span>⚡ Livraison 24h - 72h</span>
+
+<span>📱 WhatsApp intégré</span>
+
+<span>🎯 Optimisé conversion</span>
+
+<span>📲 Responsive mobile</span>
+
+
+
+</div>
+
+<section id="Pourquoi nous">
+
+<h2 class="section-title">
+Pourquoi les entreprises nous font confiance 
+</h2>
+
+<div class="stats">
+
+<div class="card">
+<h3>⚡ Rapide</h3>
+<p>
+Des projets livrés en quelques jours seulement.
+</p>
+</div>
+
+<div class="card">
+<h3>📈 Conversion</h3>
+<p>
+Chaque page est pensée pour générer des demandes.
+</p>
+</div>
+
+<div class="card">
+<h3>📱 Mobile First</h3>
+<p>
+Une expérience parfaite sur smartphone.
+</p>
+</div>
+
+<div class="card">
+<h3>🎨Beautiful design</h3>
+<p>
+Un design moderne qui inspire confiance.
+</p>
+</div>
+
+</div>
+
+</section>
+
+<section id="Offres">
+
+<h2 class="section-title">
+Nos Offres
+</h2>
+
+<div class="services">
+
+<div class="card">
+
+<h3>Landing Page</h3>
+
+<p>
+Idéale pour générer des prospects rapidement.
+</p>
+
+<br>
+
+<p>
+✅ Design premium
+<br>
+✅ Responsive
+<br>
+✅ WhatsApp intégré
+<br>
+✅ Optimisation conversion
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Site Vitrine</h3>
+
+<p>
+Présentez votre activité avec professionnalisme.
+</p>
+
+<br>
+
+<p>
+✅ Jusqu'à 5 pages
+<br>
+✅ Référencement SEO
+<br>
+✅ Responsive
+<br>
+✅ Design personnalisé
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Automatisation WhatsApp</h3>
+
+<p>
+Transformez vos visiteurs en conversations.
+</p>
+
+<br>
+
+<p>
+✅ Bouton WhatsApp
+<br>
+✅ Messages pré-remplis
+<br>
+✅ Parcours client optimisé
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<h2 class="section-title">
+Questions fréquentes
+</h2>
+
+<div class="services">
+
+<div class="card">
+<h3>Combien coûte un site ?</h3>
+<p>
+Chaque projet est unique. Contactez-nous pour obtenir un devis gratuit.
+</p>
+</div>
+
+<div class="card">
+<h3>En combien de temps livrez-vous ?</h3>
+<p>
+La plupart des projets sont livrés entre 24h et 72h.
+</p>
+</div>
+
+<div class="card">
+<h3>Le site est-il responsive ?</h3>
+<p>
+Oui, tous nos sites sont optimisés pour mobile, tablette et ordinateur.
+</p>
+</div>
+
+<div class="card">
+<h3>Puis-je modifier mon site ?</h3>
+<p>
+Oui, nous pouvons prévoir une solution simple pour gérer votre contenu.
+</p>
+</div>
+
+</div>
+
+</section>
+
+<section id="contact">
+
+<div class="hero-buttons">
+
+<a
+href="https://wa.me/2250508731308?text=Bonjour%20KILIORA%20LABS,%20je%20souhaite%20obtenir%20un%20devis."
+target="_blank"
+class="btn btn-primary">
+
+🚀 Recevoir mon devis gratuit
+
+</a>
+
+</div>
+
+</section>
+
+</body>
+
+</html>
